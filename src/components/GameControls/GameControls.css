@@ -1,0 +1,114 @@
+.game-controls {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.controls-row {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.reset-button {
+    padding: 12px 30px;
+    font-size: 1.1rem;
+    background: #2ecc71;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.reset-button:hover {
+    background: #27ae60;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+.undo-button {
+    padding: 12px 20px;
+    font-size: 1rem;
+    background: #3498db;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.undo-button:hover:not(:disabled) {
+    background: #2980b9;
+    transform: translateY(-2px);
+}
+
+.undo-button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.undo-button:not(:disabled)::before {
+    content: '↶';
+    margin-right: 5px;
+    display: inline-block;
+    transition: transform 0.3s ease;
+}
+
+.undo-button:not(:disabled):hover::before {
+    transform: rotate(-360deg);
+}
+
+.game-history {
+    padding: 15px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    text-align: center;
+    max-width: 500px;
+}
+
+.game-history h4 {
+    margin: 0 0 10px 0;
+    color: #ecf0f1;
+}
+
+.moves-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    justify-content: center;
+}
+
+.move-item {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    font-family: monospace;
+}
+
+@media (max-width: 600px) {
+    .controls-row {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .undo-button {
+        width: 200px;
+    }
+
+    .moves-list {
+        gap: 5px;
+    }
+
+    .move-item {
+        font-size: 0.8rem;
+        padding: 3px 6px;
+    }
+}
